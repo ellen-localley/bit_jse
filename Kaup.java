@@ -12,7 +12,7 @@ public class Kaup {
 	private double weight;
 
 	public void setHeight(double height) {
-		this.height = height;
+		this.height = height/100;
 	}
 
 	public double getHeight() {
@@ -28,7 +28,7 @@ public class Kaup {
 	}
 	
 	public String calculate() {
-		double kaup=this.weight/(this.height*this.height);
+		double kaup=weight/(height*height);
 		String result="";
 		
 		if(5<kaup&&kaup<18.5) {

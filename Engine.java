@@ -22,14 +22,12 @@ public class Engine {
 					+ "5.1부터 100까지의 합   "
 					+ "6.가위바위보   "
 					+ "7.카우프지수");
-			int flag=scanner.nextInt();
-			switch(flag) {
+			switch(scanner.nextInt()) {
 			case 0: System.out.println("종료"); return;
 			
 			case 1: System.out.println("회원가입");
 				System.out.println("아이디 입력");
-				String id=scanner.next();	
-				member.setId(id);
+				member.setId(scanner.next());
 				break;
 				
 			case 2: 
@@ -49,11 +47,9 @@ public class Engine {
 				calculator=new Calculator();
 				System.out.println("계산기");
 				System.out.println("첫번째 수 입력");
-				int num1=scanner.nextInt();
-				calculator.setNum1(num1);
+				calculator.setNum1(scanner.nextInt());
 				System.out.println("두번째 수 입력");
-				int num2=scanner.nextInt();
-				calculator.setNum2(num2);
+				calculator.setNum2(scanner.nextInt());
 				int returnNum1=calculator.getNum1();
 				int returnNum2=calculator.getNum2();
 				int c=calculator.calculator();
@@ -62,6 +58,7 @@ public class Engine {
 				
 			case 4:
 				dice=new Dice();
+				random=new Random();
 				System.out.println("*** 주사위 홀짝 맞추기 게임 ***");
 				System.out.println("기대하는 값 홀/짝을 입력해주세요");
 				String expect=scanner.next();
@@ -84,7 +81,7 @@ public class Engine {
 				System.out.println(String.format("매칭 결과: %s", result2));
 				break;
 				
-			case 5: sum();
+			case 5: ;
 				break;
 				
 			case 6:
@@ -101,24 +98,13 @@ public class Engine {
 			
 			case 7:
 				kaup=new Kaup();
-				System.out.println("키(m)를 입력하세요");
-				double height=scanner.nextDouble();
-				kaup.setHeight(height);
+				System.out.println("키(cm)를 입력하세요");
+				kaup.setHeight(scanner.nextDouble());
 				System.out.println("몸무게(kg)를 입력하세요");
-				double weight=scanner.nextDouble();
-				kaup.setWeight(weight);
-				String kaupResult = kaup.calculate();
-				System.out.println(kaupResult);
+				kaup.setWeight(scanner.nextDouble());
+				System.out.println(kaup.calculate());
 				break;
 			}
 		}
-	}
-
-	static void sum() {
-		int sum=0;
-		for(int i=1;i<=100;i++) {
-			sum+=i;
-		}
-		System.out.println(String.format("1부터 100까지의 합: %d", sum));
 	}
 }
