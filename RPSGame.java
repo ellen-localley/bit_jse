@@ -1,7 +1,9 @@
 package com.jse.app;
 
 public class RPSGame {
-	
+	public RPSGame() {
+		// TODO Auto-generated constructor stub
+	}
 	private int userValue;
 	private int computerValue;
 	

@@ -7,11 +7,12 @@ public class Engine {
 		
 		Scanner scanner=new Scanner(System.in);
 		Member member=new Member();
-		Calculator calculator=new Calculator();
-		Dice dice=new Dice();
-		Random random=new Random();
-		RPSGame rpsGame=new RPSGame();
-		
+		Calculator calculator=null;
+		Dice dice=null;
+		Random random=null;
+		RPSGame rpsGame=null;
+		Kaup kaup=null;
+	
 		while(true) {
 			System.out.println("0.종료   "
 					+ "1.회원가입   "
@@ -19,7 +20,8 @@ public class Engine {
 					+ "3.계산기   "
 					+ "4.주사위 홀짝 맞추기 게임   "
 					+ "5.1부터 100까지의 합   "
-					+ "6.가위바위보   ");
+					+ "6.가위바위보   "
+					+ "7.카우프지수");
 			int flag=scanner.nextInt();
 			switch(flag) {
 			case 0: System.out.println("종료"); return;
@@ -44,6 +46,7 @@ public class Engine {
 				break;
 				
 			case 3:
+				calculator=new Calculator();
 				System.out.println("계산기");
 				System.out.println("첫번째 수 입력");
 				int num1=scanner.nextInt();
@@ -58,6 +61,7 @@ public class Engine {
 				break;
 				
 			case 4:
+				dice=new Dice();
 				System.out.println("*** 주사위 홀짝 맞추기 게임 ***");
 				System.out.println("기대하는 값 홀/짝을 입력해주세요");
 				String expect=scanner.next();
@@ -84,6 +88,7 @@ public class Engine {
 				break;
 				
 			case 6:
+				rpsGame=new RPSGame();
 				System.out.println("1.가위   2.바위   3.보   를 입력하세요");
 				int user=scanner.nextInt();
 				System.out.println("사용자의 값은 "+user+"입니다.");
@@ -92,6 +97,18 @@ public class Engine {
 				System.out.println("컴퓨터의 값은 "+rps+"입니다.");
 				rpsGame.setComputerValue(rps);
 				rpsGame.game();
+				break;
+			
+			case 7:
+				kaup=new Kaup();
+				System.out.println("키(m)를 입력하세요");
+				double height=scanner.nextDouble();
+				kaup.setHeight(height);
+				System.out.println("몸무게(kg)를 입력하세요");
+				double weight=scanner.nextDouble();
+				kaup.setWeight(weight);
+				String kaupResult = kaup.calculate();
+				System.out.println(kaupResult);
 				break;
 			}
 		}
